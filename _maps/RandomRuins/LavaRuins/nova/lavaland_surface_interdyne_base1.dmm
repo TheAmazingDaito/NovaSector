@@ -1133,6 +1133,10 @@
 /obj/effect/turf_decal/siding/thinplating{
 	dir = 9
 	},
+/obj/machinery/quantumpad{
+	map_pad_id = "interdyne";
+	map_pad_link_id = "ds2"
+	},
 /turf/open/floor/iron/herringbone,
 /area/ruin/interdyne_planetary_base/cargo)
 "jx" = (

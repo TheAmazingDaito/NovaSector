@@ -2401,6 +2401,7 @@
 	dir = 4;
 	anchored = 1
 	},
+/obj/item/circuitboard/computer/rdconsole,
 /turf/open/floor/vault/alien{
 	name = "floor"
 	},
@@ -7054,6 +7055,13 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"AT" = (
+/obj/machinery/quantumpad{
+	map_pad_id = "interdyne";
+	map_pad_link_id = "ds2"
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/ruin/interdyne_planetary_base/cargo)
 "Br" = (
 /obj/machinery/door/airlock/public/glass{
 	name = "Service Wing"
@@ -7508,6 +7516,13 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/ruin/interdyne_planetary_base/main/dorms)
+"We" = (
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/circuit_imprinter,
+/turf/open/floor/vault/alien{
+	name = "floor"
+	},
+/area/ruin/interdyne_planetary_base/science)
 "Wm" = (
 /obj/machinery/porta_turret/syndicate{
 	dir = 9;
@@ -7585,6 +7600,13 @@
 	initial_gas_mix = "ICEMOON_ATMOS"
 	},
 /area/icemoon/underground/explored)
+"ZH" = (
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/protolathe,
+/turf/open/floor/vault/alien{
+	name = "floor"
+	},
+/area/ruin/interdyne_planetary_base/science)
 "ZP" = (
 /obj/machinery/hydroponics/constructable{
 	dir = 8
@@ -8275,8 +8297,8 @@ ab
 ab
 fz
 ga
-gG
-gG
+ZH
+We
 hS
 ic
 iu
@@ -8677,7 +8699,7 @@ bm
 da
 bm
 bm
-bm
+AT
 bm
 bm
 bm

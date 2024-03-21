@@ -787,14 +787,8 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "dA" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/table,
-/obj/item/multitool/circuit{
-	pixel_x = -8
-	},
-/obj/item/multitool/circuit,
-/obj/item/multitool/circuit{
-	pixel_x = 7
-	},
+/obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/mechfab,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "dC" = (
@@ -1015,7 +1009,6 @@
 /turf/open/floor/iron/white/textured_large,
 /area/ruin/space/has_grav/nova/des_two/service/diner)
 "er" = (
-/obj/machinery/ecto_sniffer,
 /obj/structure/table/reinforced/plastitaniumglass,
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
@@ -2487,6 +2480,18 @@
 	pixel_x = -5;
 	pixel_y = 3
 	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/obj/item/controller,
+/obj/item/controller{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/obj/item/controller{
+	pixel_x = -5;
+	pixel_y = 3
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "kx" = (
@@ -2938,10 +2943,6 @@
 /area/ruin/space/has_grav/nova/des_two/security)
 "mw" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/table,
-/obj/item/storage/toolbox/electrical{
-	pixel_y = 5
-	},
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
@@ -4070,6 +4071,18 @@
 "rq" = (
 /obj/effect/turf_decal/tile/dark_red/fourcorners,
 /obj/structure/table,
+/obj/item/multitool/circuit,
+/obj/item/multitool/circuit{
+	pixel_x = 7
+	},
+/obj/item/multitool/circuit{
+	pixel_x = -8
+	},
+/obj/item/integrated_circuit/loaded/speech_relay,
+/obj/item/integrated_circuit/loaded/hello_world{
+	pixel_x = -3;
+	pixel_y = 10
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "rr" = (
@@ -4376,6 +4389,7 @@
 "sP" = (
 /obj/effect/turf_decal/trimline/purple/filled/end,
 /obj/structure/table,
+/obj/machinery/ecto_sniffer,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "sQ" = (
@@ -4808,9 +4822,7 @@
 /obj/effect/turf_decal/trimline/dark_red/filled/line{
 	dir = 1
 	},
-/obj/item/circuitboard/machine/mechfab,
 /obj/effect/turf_decal/trimline/dark_red/warning,
-/obj/structure/frame/machine/secured,
 /turf/open/floor/iron/dark/side{
 	dir = 1
 	},
@@ -6218,7 +6230,7 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open,
 /area/ruin/space/has_grav/nova/des_two/bridge/admiral)
 "Ce" = (
 /obj/structure/drain,
@@ -8976,12 +8988,6 @@
 /area/ruin/space/has_grav/nova/des_two/halls)
 "Or" = (
 /obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/table,
-/obj/item/integrated_circuit/loaded/hello_world{
-	pixel_x = -3;
-	pixel_y = 10
-	},
-/obj/item/integrated_circuit/loaded/speech_relay,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/nova/des_two/research)
 "Ov" = (
@@ -11424,20 +11430,6 @@
 	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/engineering)
-"ZM" = (
-/obj/effect/turf_decal/trimline/dark_red/filled/line,
-/obj/structure/table,
-/obj/item/controller{
-	pixel_x = -5;
-	pixel_y = 3
-	},
-/obj/item/controller,
-/obj/item/controller{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/nova/des_two/research)
 "ZP" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
@@ -13972,7 +13964,7 @@ SX
 KG
 SN
 Hz
-ZM
+Or
 dJ
 Dt
 sd
