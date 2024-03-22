@@ -924,6 +924,12 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/space/has_grav/nova/des_two/halls)
+"gC" = (
+/obj/item/circuitboard/machine/mechfab,
+/obj/structure/rack/shelf,
+/obj/item/circuitboard/machine/bluespace_miner,
+/turf/open/floor/iron,
+/area/ruin/space/has_grav/nova/des_two/research/robotics)
 "gD" = (
 /obj/effect/turf_decal/stripes/red/full,
 /obj/structure/cable,
@@ -1148,7 +1154,6 @@
 /obj/item/circuitboard/machine/xenoarch_machine/xenoarch_researcher{
 	pixel_y = -6
 	},
-/obj/item/circuitboard/machine/bluespace_miner,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/nova/des_two/research)
 "ip" = (
@@ -7479,7 +7484,7 @@ yY
 yY
 yY
 la
-iW
+gC
 iW
 Ex
 Ex
