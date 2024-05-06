@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"map_name": "Marina Station",
+	"map_path": "map_files/ShipStation",
+	"map_file": "ShipStation2.dmm",
+	"shuttles": {
+		"emergency": "emergency_nova",
+		"ferry": "ferry_nova",
+		"cargo": "cargo_nova_delta",
+		"mining": "mining_nova_large",
+		"whiteship": "whiteship_delta"
+	},
+	"job_changes": {
+		"Shuttle Pilot": {
+			"total_positions": 2,
+			"spawn_positions": 2
+		}
+	},
+	"minetype": "none"
+}
