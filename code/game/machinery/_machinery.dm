@@ -414,7 +414,8 @@
 				continue
 			if(isliving(current_atom))
 				var/mob/living/current_mob = atom
-				if(current_mob.buckled || current_mob.mob_size >= MOB_SIZE_LARGE)
+				// Bluemoon edit - Allow large mobs inside machines
+				if(current_mob.buckled || current_mob.mob_size >= MOB_SIZE_HUGE)
 					continue
 			target = atom
 
@@ -1147,9 +1148,6 @@
 /obj/machinery/proc/on_deconstruction(disassembled)
 	PROTECTED_PROC(TRUE)
 	return
-
-/obj/machinery/proc/can_be_overridden()
-	. = 1
 
 /obj/machinery/zap_act(power, zap_flags)
 	if(prob(85) && (zap_flags & ZAP_MACHINE_EXPLOSIVE) && !(resistance_flags & INDESTRUCTIBLE))

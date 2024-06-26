@@ -214,6 +214,9 @@
 	///what multiplicative slowdown we get from turfs currently.
 	var/current_turf_slowdown = 0
 
+	/// Is the mob looking vertically
+	var/looking_vertically = FALSE
+
 	/// Living mob's mood datum
 	var/datum/mood/mob_mood
 
@@ -223,3 +226,9 @@
 
 	/// What our current gravity state is. Used to avoid duplicate animates and such
 	var/gravity_state = null
+
+	/// Is this mob normalized
+	var/is_normalized = FALSE
+
+	/// What the wearers natural size is, without a normalizer on.
+	var/natural_size = 1

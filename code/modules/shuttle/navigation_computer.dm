@@ -18,12 +18,16 @@
 	/// The mobile docking port of the connected shuttle
 	var/obj/docking_port/mobile/shuttle_port
 	// Traits forbided for custom docking
+	// Bluemoon edit - Allow more shuttle destinations
+	var/list/locked_traits = list()
+	/*
 	var/list/locked_traits = list(ZTRAIT_RESERVED, ZTRAIT_CENTCOM, ZTRAIT_AWAY)
+	*/
 	var/view_range = 0
 	var/x_offset = 0
 	var/y_offset = 0
-	// Bluemoon edit - Add Shipstation map
-	var/list/whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/open/openspace, /turf/closed/mineral/, /turf/open/misc/asteroid/)
+	// Bluemoon edit - Allow more shuttle destinations
+	var/list/whitelist_turfs = list(/turf/open/misc, /turf/open/floor, /turf/open/space, /turf/open/lava, /turf/open/openspace, /turf/closed/mineral/)
 	/*
 	var/list/whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/open/openspace)
 	*/
@@ -190,7 +194,7 @@
 	if(current_user.client)
 		current_user.client.images -= the_eye.placed_images
 
-	QDEL_LIST(the_eye.placed_images)
+	LAZYCLEARLIST(the_eye.placed_images)
 
 	for(var/image/place_spots as anything in the_eye.placement_images)
 		var/image/newI = image('icons/effects/alphacolors.dmi', the_eye.loc, "blue")
@@ -307,8 +311,8 @@
 /mob/camera/ai_eye/remote/shuttle_docker
 	visible_icon = FALSE
 	use_static = FALSE
-	var/list/placement_images = list()
-	var/list/placed_images = list()
+	var/list/image/placement_images = list()
+	var/list/image/placed_images = list()
 
 /mob/camera/ai_eye/remote/shuttle_docker/Initialize(mapload, obj/machinery/computer/camera_advanced/origin)
 	src.origin = origin

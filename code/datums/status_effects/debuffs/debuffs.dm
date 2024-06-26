@@ -131,6 +131,15 @@
 	alert_type = /atom/movable/screen/alert/status_effect/asleep
 	needs_update_stat = TRUE
 	tick_interval = 2 SECONDS
+	// Bluemoon edit - Show sleep duration
+	show_duration = TRUE
+	// Bluemoon edit - Allow waking from voluntary sleeping
+	var/voluntary = FALSE
+
+// Bluemoon edit - Allow waking from voluntary sleeping
+/datum/status_effect/incapacitating/sleeping/on_creation(mob/living/new_owner, set_duration, is_voluntary = FALSE)
+	voluntary = is_voluntary
+	return ..()
 
 /datum/status_effect/incapacitating/sleeping/on_apply()
 	. = ..()
@@ -246,6 +255,12 @@
 	if(prob(2) && owner.health > owner.crit_threshold)
 		owner.emote("snore")
 
+	// Bluemoon edit - Prolong sleep indefinitely when client disconnects
+	if(!owner.client)
+		pause_expiry = TRUE
+	else
+		pause_expiry = FALSE
+
 /atom/movable/screen/alert/status_effect/asleep
 	name = "Asleep"
 	desc = "You've fallen asleep. Wait a bit and you should wake up. Unless you don't, considering how helpless you are."
@@ -358,7 +373,7 @@
 		hammer_synced = new_hammer_synced
 
 /datum/status_effect/crusher_mark/on_apply()
-	if(owner.mob_size >= MOB_SIZE_LARGE)
+	if(owner.mob_size >= MOB_SIZE_LARGE  && !HAS_TRAIT(owner, TRAIT_OVERSIZED)) // NOVA EDIT CHANGE - Original: if(owner.mob_size >= MOB_SIZE_LARGE)
 		marked_underlay = mutable_appearance('icons/effects/effects.dmi', "shield2")
 		marked_underlay.pixel_x = -owner.pixel_x
 		marked_underlay.pixel_y = -owner.pixel_y
@@ -666,6 +681,7 @@
 	duration = 150
 	status_type = STATUS_EFFECT_REFRESH
 	alert_type = /atom/movable/screen/alert/status_effect/convulsing
+	show_duration = TRUE
 
 /datum/status_effect/convulsing/on_creation(mob/living/zappy_boy)
 	. = ..()
@@ -777,7 +793,10 @@
 					span_userdanger(pick("Your lungs hurt!", "It hurts to breathe!")),
 					span_warning(pick("You feel nauseated.", "You feel like you're going to throw up!")))
 				else
-					fake_emote = pick("cough", "sniff", "sneeze")
+					if(prob(40))
+						fake_emote = "cough"
+					else
+						owner.sneeze()
 
 	if(fake_emote)
 		owner.emote(fake_emote)

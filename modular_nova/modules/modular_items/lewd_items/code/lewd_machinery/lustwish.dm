@@ -77,6 +77,10 @@
 
 				/obj/item/clothing/under/stripper_outfit = 5,
 				/obj/item/clothing/glasses/nice_goggles = 1, //easter egg, don't touch plz
+
+				/obj/item/clothing/neck/normalizer/pendant = 3, //BLUEMOON EDIT: Normalizer equipment
+				/obj/item/clothing/neck/normalizer/collar = 3,
+				/obj/item/clothing/gloves/ring/normalizer = 3
 			),
 		),
 		list(
@@ -101,6 +105,7 @@
 
 				//neck
 				/obj/item/key/collar = 48,
+				/obj/item/clothing/erp_leash = 8,
 				/obj/item/clothing/neck/kink_collar = 8,
 				/obj/item/clothing/neck/human_petcollar = 8,
 				/obj/item/clothing/neck/human_petcollar/choker = 8,
@@ -134,6 +139,14 @@
 				/obj/item/reagent_containers/cup/bottle/camphor = 3,
 				/obj/item/reagent_containers/cup/bottle/succubus_milk = 6, //Those are legal 'cause you can just turn off prefs in round in "CLOWN SMOKE MACHINE+PENIS ENLARGEMENT CHEMICAL CASE". Yes, i have special code-phrase for this. I've seen some shit.
 				/obj/item/reagent_containers/cup/bottle/incubus_draft = 6,
+
+				// Bluemoon edit - Custom mob size
+				/obj/item/reagent_containers/cup/bottle/prospacillin = 6,
+				/obj/item/reagent_containers/cup/bottle/dimicillin = 6,
+
+				// Bluemoon edit - RUTT reagent
+				/obj/item/reagent_containers/pill/rutt = 20,
+				/obj/item/reagent_containers/cup/bottle/rutt = 6,
 			),
 		),
 		list(

@@ -27,11 +27,19 @@
 	if(!vagina)
 		return FALSE
 
+	// Bluemoon edit - Fix infinite body fluid regen bug
+	if(vagina.internal_fluid_full())
+		return FALSE
+	// Bluemoon edit - Always-active body fluid regen
+	var/regen = max(0.5, (affected_human.arousal / AROUSAL_MULTIPLIER) * (vagina.internal_fluid_maximum / VAGINA_MULTIPLIER) * BASE_MULTIPLIER)
+	vagina.adjust_internal_fluid(regen)
+	/*
 	if(affected_human.arousal > AROUSAL_LOW)
 		var/regen = (affected_human.arousal / AROUSAL_MULTIPLIER) * (vagina.internal_fluid_maximum / VAGINA_MULTIPLIER) * BASE_MULTIPLIER
 		vagina.adjust_internal_fluid(regen)
 	else
 		vagina.adjust_internal_fluid(VAGINA_FLUID_REMOVAL_AMOUNT)
+	*/
 
 /datum/status_effect/body_fluid_regen/testes
 	id = "testes fluid regen"
@@ -42,11 +50,16 @@
 		return FALSE
 
 	var/obj/item/organ/external/genital/testicles/testes = owner.get_organ_slot(ORGAN_SLOT_TESTICLES)
-	if(!testes || (affected_human.arousal < AROUSAL_LOW))
+	// Bluemoon edit - Always-active body fluid regen
+	if(!testes /*|| (affected_human.arousal < AROUSAL_LOW)*/)
 		return FALSE
-
-	var/regen = (affected_human.arousal / AROUSAL_MULTIPLIER) * (testes.internal_fluid_maximum / TESTES_MULTIPLIER) * BASE_MULTIPLIER
-	testes.internal_fluid_count += regen
+	// Bluemoon edit - Fix infinite body fluid regen bug
+	if(testes.internal_fluid_full())
+		return FALSE
+	// Bluemoon edit - Always-active body fluid regen
+	var/regen = max(0.5, (affected_human.arousal / AROUSAL_MULTIPLIER) * (testes.internal_fluid_maximum / TESTES_MULTIPLIER) * BASE_MULTIPLIER)
+	// Bluemoon edit - Fix infinite body fluid regen bug
+	testes.adjust_internal_fluid(regen)
 
 /datum/status_effect/body_fluid_regen/breasts
 	id = " breast milk regen"
@@ -59,10 +72,13 @@
 	var/obj/item/organ/external/genital/breasts/breasts = owner.get_organ_slot(ORGAN_SLOT_BREASTS)
 	if(!breasts || !breasts.lactates)
 		return FALSE
-
-	var/regen = ((owner.nutrition / (NUTRITION_LEVEL_WELL_FED / NUTRITION_MULTIPLIER)) / NUTRITION_MULTIPLIER) * (breasts.internal_fluid_maximum / BREASTS_MULTIPLIER) * BASE_MULTIPLIER
+	// Bluemoon edit - Allow breast fluid regen without nutrition
+	var/regen = max(0.5, ((owner.nutrition / (NUTRITION_LEVEL_WELL_FED / NUTRITION_MULTIPLIER)) / NUTRITION_MULTIPLIER) * (breasts.internal_fluid_maximum / BREASTS_MULTIPLIER) * BASE_MULTIPLIER)
 	if(!breasts.internal_fluid_full())
+		// Bluemoon edit - Allow breast fluid regen without nutrition
+		/*
 		owner.adjust_nutrition(-regen / NUTRITION_COST_MULTIPLIER)
+		*/
 		breasts.adjust_internal_fluid(regen)
 
 #undef AROUSAL_MULTIPLIER

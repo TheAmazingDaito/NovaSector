@@ -89,7 +89,6 @@
 	suffix = "blackmarket.dmm"
 	name = "Space-Ruin Shady Market"
 	description = "Whaddya buyin'?"
-	always_place = TRUE
 
 /datum/map_template/ruin/space/nova/shuttle8532
 	id = "shuttle8532"
@@ -132,6 +131,8 @@
 	suffix = "cargodiselost.dmm"
 	name = "Space-Ruin Cargodise Lost"
 	description = "A small crew of freight-haulers are marooned in space after pirates knock out their engines. They must survive off of the cargo on board their ship and fend off the pirate boarders on their ship."
+	// Bluemoon edit - Always spawn freighter
+	always_place = TRUE
 
 /datum/map_template/ruin/space/nova/infestedntship
 	id = "scrapheap"

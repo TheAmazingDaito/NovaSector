@@ -56,14 +56,13 @@
 			return TRUE
 
 /datum/sprite_accessory/genital/penis
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/penis_onmobhyper.dmi'
 	organ_type = /obj/item/organ/external/genital/penis
 	associated_organ_slot = ORGAN_SLOT_PENIS
 	key = ORGAN_SLOT_PENIS
 	color_src = USE_MATRIXED_COLORS
 	always_color_customizable = TRUE
 	center = TRUE
-	special_icon_case = TRUE
 	special_x_dimension = TRUE
 	//default_color = DEFAULT_SKIN_OR_PRIMARY //This is the price we're paying for sheaths
 	relevent_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
@@ -132,13 +131,16 @@
 	icon_state = "hemiknot"
 	name = "Knotted Hemi"
 
+/datum/sprite_accessory/genital/penis/thick //BLUEMOON EDIT - ADD NEW DICK TYPE
+	icon_state = "thick"
+	name = "Thick"
+
 /datum/sprite_accessory/genital/testicles
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/testicles_onmob.dmi' //BLUEMOON EDIT - NEW SPRITES
 	organ_type = /obj/item/organ/external/genital/testicles
 	associated_organ_slot = ORGAN_SLOT_TESTICLES
 	key = ORGAN_SLOT_TESTICLES
 	always_color_customizable = TRUE
-	special_icon_case = TRUE
 	special_x_dimension = TRUE
 	default_color = DEFAULT_SKIN_OR_PRIMARY
 	relevent_layers = list(BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
@@ -265,7 +267,7 @@
 	color_src = null
 
 /datum/sprite_accessory/genital/breasts
-	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breasts_onmob.dmi'
+	icon = 'modular_nova/master_files/icons/mob/sprite_accessory/genitals/breastshyper_onmob.dmi' //BLUEMOON EDIT: CHANGED TYPEPATH TO /breastshyper_onmob.dmi FROM /breasts_onmob.dmi TO USE NEW SPRITES
 	organ_type = /obj/item/organ/external/genital/breasts
 	associated_organ_slot = ORGAN_SLOT_BREASTS
 	key = ORGAN_SLOT_BREASTS

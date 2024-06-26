@@ -5,6 +5,10 @@
 		/area/misc/hilbertshotel,\
 )
 
+/*
+ * THIS IS THE WRONG WAY TO USE A COMPONENT PROCEED DIRECTLY TO HELL DO NOT PASS GO DO NOT COLLECT 200 BOTTOMS -francinum
+ */
+
 /obj/item/clothing/neck/size_collar
 	name = "size collar"
 	desc = "A shiny black collar embeded with technology that allows the user to change their own size."
@@ -17,14 +21,19 @@
 	var/datum/component/temporary_size/size_component
 	/// What size do we want to set the wearer to when they wear the collar?
 	var/target_size = 1
+	/// Cache of valid areas for examine
+	var/examine_area_cache
 
 /obj/item/clothing/neck/size_collar/attack_self(mob/user, modifiers)
 	. = ..()
+	// Bluemoon edit - Allow size collar in any area
+	/*
 	if(!warning_given)
 		if(tgui_alert(user, "This item is strictly intended as an ERP item for use in dorm rooms. Failure to respect this will result in administrative action being taken. Do you wish to continue using this item?", "A word of warning.", list("Yes", "No")) != "Yes")
 			return FALSE
 
 		warning_given = TRUE
+	*/
 
 	var/chosen_size = tgui_input_number(user, "What size percentage do you wish to set the collar to?", name, 100, CONFIG_GET(number/size_collar_maximum), CONFIG_GET(number/size_collar_minimum))
 	if(!chosen_size)
@@ -37,8 +46,11 @@
 	return TRUE
 
 /obj/item/clothing/neck/size_collar/mob_can_equip(mob/living/user, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
+	// Bluemoon edit - Allow size collar in any area
+	/*
 	if(!warning_given)
 		return FALSE
+	*/
 
 	return ..()
 
@@ -58,9 +70,26 @@
 		qdel(size_component)
 		size_component = null
 
+// Bluemoon edit - Allow size collar in any area
+/*
 /obj/item/clothing/neck/size_collar/examine(mob/user)
 	. = ..()
+	// Bluemoon edit - Custom mob size
 	var/list/area_names = list()
+	if(!examine_area_cache)
+		for(var/area/area_index as anything in SIZE_WHITELISTED_AREAS) //We can't do this typed.
+			var/area_name = initial(area_index.name)
+			if(!area_name)
+				continue
+
+			area_names += area_name
+		if(!area_names)
+			examine_area_cache = 1 //Not A String. Just a trigger value.
+		examine_area_cache = english_list(area_names)
+	if(istext(examine_area_cache))
+		. += span_cyan("This collar will work in the following areas: [examine_area_cache]")
+
+	/*
 	for(var/area_index in SIZE_WHITELISTED_AREAS) //We can't do this typed.
 		var/area/area_type = area_index //So we have to assign it to a typed variable after we get it from the loop.
 		var/area_name = initial(area_type.name)
@@ -71,8 +100,10 @@
 
 	if(length(area_names))
 		. += span_cyan("This collar will work in the following areas: [english_list(area_names)]")
+	*/
 
 	return .
+*/
 
 /// Component that temporarily applies a size to a human.
 /datum/component/temporary_size
@@ -94,10 +125,15 @@
 	if(!original_size) //If we aren't able to get the original size, we shouldn't exist.
 		return COMPONENT_INCOMPATIBLE
 
+	// Bluemoon edit - Allow size collar in any area
+	/*
 	RegisterSignal(parent, COMSIG_ENTER_AREA, .proc/check_area)
-
+	*/
 	target_size = size_to_apply
+	apply_size(target_size)
+	/*
 	check_area()
+	*/
 
 /// Checks if we need to revert our size when entering a different area.
 /datum/component/temporary_size/proc/check_area()
@@ -122,8 +158,10 @@
 
 /datum/component/temporary_size/Destroy(force)
 	apply_size(original_size)
+	// Bluemoon edit - Allow size collar in any area
+	/*
 	UnregisterSignal(parent, COMSIG_ENTER_AREA)
-
+	*/
 	return ..()
 
 #undef SIZE_WHITELISTED_AREAS

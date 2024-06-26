@@ -20,7 +20,6 @@
 		/mob/living/simple_animal/bot/secbot/genesky,
 		/mob/living/simple_animal/bot/secbot/grievous,
 		/mob/living/simple_animal/bot/secbot/grievous/toy,
-		/mob/living/simple_animal/bot/secbot/honkbot,
 		/mob/living/simple_animal/bot/secbot/pingsky,
 		/mob/living/simple_animal/bot/vibebot,
 		/mob/living/simple_animal/hostile,
@@ -80,8 +79,8 @@
 		/mob/living/simple_animal/pet/gondola/virtual_domain,
 		/mob/living/simple_animal/soulscythe,
 
-		//MODULAR SKYRAT ENTRIES
-		//PLEASE REFACTOR THESE AS YOU CAN
+		// MODULAR NOVA ENTRIES
+		// PLEASE REFACTOR THESE AS YOU CAN
 		/mob/living/simple_animal/hostile/bigcrab,
 		/mob/living/simple_animal/hostile/cazador,
 		/mob/living/simple_animal/hostile/cult,
