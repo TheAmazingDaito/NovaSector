@@ -2815,10 +2815,6 @@
 /obj/effect/turf_decal/stripes/red/box,
 /turf/open/floor/iron/dark/smooth_large,
 /area/ruin/space/has_grav/nova/des_two/security/prison)
-"tN" = (
-/obj/machinery/cryo_cell,
-/turf/closed/wall/r_wall/syndicate/nodiagonal,
-/area/ruin/space/has_grav/nova/des_two/cargo)
 "tR" = (
 /obj/structure/chair/comfy/brown{
 	color = "#596479";
@@ -9174,7 +9170,7 @@ Ld
 Ld
 Ld
 Ks
-tN
+tv
 tv
 hU
 hU
